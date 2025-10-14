@@ -1,0 +1,26 @@
+# コンパイル結果
+/dist
+*.js
+*.js.map
+
+# 依存関係
+node_modules/
+**/node_modules/
+
+# その他
+/other
+
+# Mac
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# ログ
+*.log
+npm-debug.log*
+
+# 環境変数
+.env
+.env.local
