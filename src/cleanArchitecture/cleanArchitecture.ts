@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2025 risk
+ * Licensed under the MIT License.
+ * https://github.com/risk/ts-playground
+ */
+
 // --- Utilities
 const createEnum = <T extends string>(...values: T[]) =>
   Object.freeze(values.reduce((acc, v) => ({ ...acc, [v]: v }), {} as Record<T, T>))

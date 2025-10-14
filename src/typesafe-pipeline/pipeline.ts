@@ -1,4 +1,10 @@
-export namespace pipeline {
+/**
+ * Copyright (c) 2025 risk
+ * Licensed under the MIT License.
+ * https://github.com/risk/ts-playground
+ */
+
+export namespace typesafePipeline {
 
   type Input<T> = Exclude<T, null | undefined>
   export type Result<T> = Input<T> | Error
@@ -97,15 +103,15 @@ export namespace pipeline {
   }
 }
 
-const ret = pipeline.Pipe
+const ret = typesafePipeline.Pipe
   .from((x: string) => x + 'start')
   .joint((x) => x + ' 1st')
   .joint((x) => x + ' 2nd')
-  .joint((x): pipeline.Result<string> => { console.log("error"); return new Error('cut')})
+  .joint((x): typesafePipeline.Result<string> => { console.log("error"); return new Error('cut')})
   .joint((x) => ({str: x + ' 3rd', num: 1}), (error) => 'recover error')
   .joint((x) => ({str: x.str + ' 4th', num: x.num + 2}))
   .branch(
-    pipeline.Pipe
+    typesafePipeline.Pipe
       .from((x: {str: string, num: number}) => ({str: x.str + ' 4th(Inject1)', num: x.num + 2}))
       .joint((x) => ({str: x.str + ' 4th(Inject2)', num: x.num + 2}))
       .joint((x) => ({str: x.str + ' 4th(Inject3)', num: x.num + 2, b: true }))

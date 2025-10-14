@@ -1,19 +1,23 @@
 {
   "name": "ts-playground",
   "version": "1.0.0",
-  "description": "",
+  "description": "TypeScript experiments and architecture sketches",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "build": "tsc",
+    "dev": "tsx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "risk",
+  "license": "MIT",
   "dependencies": {
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3",
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@types/node": "^24.7.1"
+    "@types/node": "^24.7.1",
+    "tsx": "^4.20.6"
   }
 }

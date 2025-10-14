@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2025 risk
+ * Licensed under the MIT License.
+ * https://github.com/risk/ts-playground
+ */
+
 interface RecursiveMonadoStrategy<N> {
   look(prev: N | null, cur: N): N | null
   isDone(prev: N | null, cur: N) : boolean
