@@ -33,6 +33,8 @@ npm install
 npx tsx src/pipeline/pipeline.ts
 npx tsx src/recursiveMonado/recursiveMonado.ts
 npx tsx src/cleanArchitecture/cleanArchitecture.ts
+npx tsx src/keyedPromiseAll/keyedPromiseAll.ts
+npx tsx src/typeCalc/typeTest.ts
 
 # Or compile and run
 npm run build
@@ -60,6 +62,24 @@ Sample implementation of Clean Architecture pattern.
 - Layer separation (Entity, UseCase, Gateway, Presenter)
 - Dependency injection
 - Result type pattern
+
+### 🔢 [Type-level Arithmetic](src/typeCalc/typeCalc.ts)
+Four arithmetic operations implemented at the type level.
+- Addition, subtraction, multiplication, division
+- Numbers represented as array lengths
+- Pure type-level computation with zero runtime cost
+
+### 📖 [Type System Learning](src/typeCalc/typeTest.ts)
+Educational examples for understanding TypeScript's type system.
+- `extends` and `infer` keyword usage
+- Deconstructing function types with Parameters and ReturnType
+- Array pattern matching with conditional types
+
+### 🔑 [Keyed Promise.all](src/keyedPromiseAll/)
+Enhanced Promise.all that returns results by meaningful keys instead of array indices.
+- Result type pattern for type-safe error handling
+- Arguments type inference for each function
+- Composable and nestable structure
 
 ---
 

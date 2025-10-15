@@ -7,8 +7,9 @@
 node_modules/
 **/node_modules/
 
-# その他
-/other
+# 除外フォルダ（どの階層でも）
+memo/
+other/
 
 # Mac
 .DS_Store
