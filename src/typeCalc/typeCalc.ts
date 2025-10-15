@@ -1,14 +1,3 @@
-
-
-const func = (a: number, b: string, ...c: boolean[]): [string, number] => {
-  return [b, a]
-}
-console.log(func(1, 'test', true, false))
-
-type Func = typeof func
-type FuncParameters = Parameters<Func>
-
-
 // Value
 type Value<T extends number, A extends number[] = []> =
   A['length'] extends T ? A : Value<T, [...A, number]>
