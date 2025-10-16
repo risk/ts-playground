@@ -4,25 +4,25 @@
  * https://github.com/risk/ts-playground
  */
 
-interface RecursiveMonadoStrategy<N> {
+interface RecursiveMonadStrategy<N> {
   look(prev: N | null, cur: N): N | null
   isDone(prev: N | null, cur: N) : boolean
 }
 
-class RecursiveMonado<N> {
+class RecursiveMonad<N> {
   constructor(
-    private strategy: RecursiveMonadoStrategy<N>,
+    private strategy: RecursiveMonadStrategy<N>,
     private node: N,
-    private parent: RecursiveMonado<N> | null) {}
+    private parent: RecursiveMonad<N> | null) {}
   
   getNode(): N {
     return this.node
   }
 
-  next(): RecursiveMonado<N> | null {
+  next(): RecursiveMonad<N> | null {
     const nextNode = this.strategy.look(
       this.parent?.getNode() ?? null, this.node)
-    return nextNode ? new RecursiveMonado<N>(this.strategy, nextNode, this) : this.parent
+    return nextNode ? new RecursiveMonad<N>(this.strategy, nextNode, this) : this.parent
   }
 }
 
@@ -58,7 +58,7 @@ class SearchNode {
   }
 }
 
-class MatrixExplorerStrategy<C = {} | null> implements RecursiveMonadoStrategy<SearchNode> {
+class MatrixExplorerStrategy<C = {} | null> implements RecursiveMonadStrategy<SearchNode> {
 
   constructor(
     private map: number[][],
@@ -125,7 +125,7 @@ const strategy = new MatrixExplorerStrategy(
   },
   context)
 
-let cur: RecursiveMonado<SearchNode> | null = new RecursiveMonado<SearchNode>(
+let cur: RecursiveMonad<SearchNode> | null = new RecursiveMonad<SearchNode>(
   strategy, new SearchNode(), null)
 while(cur !== null) {
 

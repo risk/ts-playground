@@ -31,7 +31,7 @@ npm install
 ```bash
 # Run any TypeScript file directly with tsx
 npx tsx src/pipeline/pipeline.ts
-npx tsx src/recursiveMonado/recursiveMonado.ts
+npx tsx src/recursiveMonad/recursiveMonad.ts
 npx tsx src/cleanArchitecture/cleanArchitecture.ts
 npx tsx src/keyedPromiseAll/keyedPromiseAll.ts
 npx tsx src/typeCalc/typeTest.ts
@@ -51,7 +51,7 @@ Railway Oriented Programming with full type safety.
 - Composable pipeline structure
 - Zero runtime overhead
 
-### 🔄 [Recursive Monad](src/recursiveMonado/)
+### 🔄 [Recursive Monad](src/recursiveMonad/)
 Converting recursion into a chain structure to avoid stack overflow.
 - Bidirectional linked list
 - Generator-based lazy evaluation
