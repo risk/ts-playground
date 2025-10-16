@@ -109,6 +109,7 @@ class MatrixExplorerStrategy<C = {} | null> implements RecursiveMonadStrategy<Se
     return cur.done
   }
 }
+
 class SearchContext {
   count: number = 0
   history: string[] = []
