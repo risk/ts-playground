@@ -18,7 +18,7 @@ namespace keyedPromiseAll {
   } | {
     ok: false,
     error: unknown
-  } 
+  }
 
   type ReturnsMap<TA extends Record<keyof TA, Promise<any>>> = {
     [Key in keyof TA]: PromiseReturnType<Awaited<TA[Key]>>
@@ -89,6 +89,13 @@ namespace keyedPromiseAll {
 
     return ret
   }
+
+  export function handleResult<T, R = void>(
+    ret: PromiseReturnType<T>,
+    onOk: (value: T) => R,
+    onNg: (error: unknown) => R): R {
+    return ret.ok ? onOk(ret.value) : onNg(ret.error)
+  }
 }
 
 async function main() {
@@ -138,6 +145,28 @@ async function main() {
     promiseOnly: retPromise,
     withArgs: retFuncs
   })
+
+  if(gruopRet.promiseOnly.ok) {
+    const ret = gruopRet.promiseOnly.value
+
+    keyedPromiseAll.handleResult(ret.asyncA,
+      (value) => {
+        console.log(value.ret)
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
+    
+    keyedPromiseAll.handleResult(ret.asyncErr,
+      (value) => {
+        console.log(value)
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
+  }
 
   console.log('result ---')
   console.dir(gruopRet, {depth: null})
