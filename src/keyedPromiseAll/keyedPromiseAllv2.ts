@@ -64,7 +64,8 @@ namespace keyedPromiseAll {
     return results
   }
 
-  export function keyed<T extends Record<never, KeyedFunc<any>>>(funcs:T = {} as T) {
+  export function keyed<
+      T extends Record<never, KeyedFunc<AsyncFunc>>>(funcs:T = {} as T) {
     return new class {
       funcs: T = funcs
       with<K extends string, F extends AsyncFunc>(
