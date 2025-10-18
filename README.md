@@ -33,7 +33,7 @@ npm install
 npx tsx src/pipeline/pipeline.ts
 npx tsx src/recursiveMonad/recursiveMonad.ts
 npx tsx src/cleanArchitecture/cleanArchitecture.ts
-npx tsx src/keyedPromiseAll/keyedPromiseAll.ts
+npx tsx src/keyedPromiseAll/keyedPromiseAllv2.ts
 npx tsx src/typeCalc/typeTest.ts
 
 # Or compile and run
@@ -75,11 +75,17 @@ Educational examples for understanding TypeScript's type system.
 - Deconstructing function types with Parameters and ReturnType
 - Array pattern matching with conditional types
 
-### 🔑 [Keyed Promise.all](src/keyedPromiseAll/)
+### ❌ [Keyed Promise.all v1](src/keyedPromiseAll/keyedPromiseAll.ts) - Failed Attempt
 Enhanced Promise.all that returns results by meaningful keys instead of array indices.
+- **Type inference issues**: Function types get reduced to constraints
+- Kept as a learning example of TypeScript's limitations
+
+### ✅ [Keyed Promise.all v2](src/keyedPromiseAll/keyedPromiseAllv2.ts)
+Improved version with perfect type inference using class-based wrapping.
+- **Builder pattern** for fluent API design
+- **Perfect type inference** through KeyedFunc wrapper class
 - Result type pattern for type-safe error handling
-- Arguments type inference for each function
-- Composable and nestable structure
+- handleResult helper for convenient result processing
 
 ---
 
