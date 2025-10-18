@@ -35,6 +35,7 @@ npx tsx src/recursiveMonad/recursiveMonad.ts
 npx tsx src/cleanArchitecture/cleanArchitecture.ts
 npx tsx src/keyedPromiseAll/keyedPromiseAllv2.ts
 npx tsx src/typeCalc/typeTest.ts
+npx tsx src/mappedType/mappedType.ts
 
 # Or compile and run
 npm run build
@@ -74,6 +75,13 @@ Educational examples for understanding TypeScript's type system.
 - `extends` and `infer` keyword usage
 - Deconstructing function types with Parameters and ReturnType
 - Array pattern matching with conditional types
+
+### 🍎 [Mapped Types with Fruits](src/mappedType/mappedType.ts)
+Learn Mapped Types through a fun fruit-themed tutorial.
+- Step-by-step explanation from Record to Mapped Types
+- Understanding `as const` and type widening
+- Transforming types (arrays, functions with arguments)
+- Practical pattern: function table with type constraints
 
 ### ❌ [Keyed Promise.all v1](src/keyedPromiseAll/keyedPromiseAll.ts) - Failed Attempt
 Enhanced Promise.all that returns results by meaningful keys instead of array indices.
