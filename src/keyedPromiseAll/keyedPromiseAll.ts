@@ -141,13 +141,13 @@ async function main() {
     asyncErr: []
   })
 
-  const gruopRet = await keyedPromiseAll.promiseAll({
+  const groupRet = await keyedPromiseAll.promiseAll({
     promiseOnly: retPromise,
     withArgs: retFuncs
   })
 
-  if(gruopRet.promiseOnly.ok) {
-    const ret = gruopRet.promiseOnly.value
+  if(groupRet.promiseOnly.ok) {
+    const ret = groupRet.promiseOnly.value
 
     keyedPromiseAll.handleResult(ret.asyncA,
       (value) => {
@@ -169,6 +169,6 @@ async function main() {
   }
 
   console.log('result ---')
-  console.dir(gruopRet, {depth: null})
+  console.dir(groupRet, {depth: null})
 }
 main()
