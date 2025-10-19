@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2025 risk
+ * Licensed under the MIT License.
+ * https://github.com/risk/ts-playground
+ */
+
 // Value
 type Value<T extends number, A extends number[] = []> =
   A['length'] extends T ? A : Value<T, [...A, number]>

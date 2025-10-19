@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2025 risk
+ * Licensed under the MIT License.
+ * https://github.com/risk/ts-playground
+ */
 namespace keyedPromiseAll {
 
   type AsyncFunc = (...x: any[]) => Promise<any>

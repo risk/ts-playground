@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2025 risk
+ * Licensed under the MIT License.
+ * https://github.com/risk/ts-playground
+ */
+
 // 果物(Key)の一覧を作ろう
 const fruits = {
   apple: 'apple',

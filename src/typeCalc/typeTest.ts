@@ -1,8 +1,13 @@
+/**
+ * Copyright (c) 2025 risk
+ * Licensed under the MIT License.
+ * https://github.com/risk/ts-playground
+ */
 
 // 「extends」は型のマッチを行うやつ
 type TestType<T extends number> = T
 const valNum: TestType<number> = 100 // OK
-const valStr: TestType<string> = '1' // NG
+// const valStr: TestType<string> = '1' // NG
 
 // inferは部分的に抜き出すやつ
 // こんな関数があったとして
