@@ -4,14 +4,6 @@
  * https://github.com/risk/ts-playground
  */
 
-export namespace test1 {
-  export const a: string = 'test'
-  export namespace test2 {
-    export const b: string = 'test'
-  }
-}
-
-
 type CanDepend<L extends Layer, I extends readonly Layer[]> =
     L extends I[number] ? true : false
 
