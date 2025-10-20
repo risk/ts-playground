@@ -36,6 +36,8 @@ npx tsx src/cleanArchitecture/cleanArchitecture.ts
 npx tsx src/keyedPromiseAll/keyedPromiseAllv2.ts
 npx tsx src/typeCalc/typeTest.ts
 npx tsx src/mappedType/mappedType.ts
+npx tsx src/distributiveConditionalType/distributiveConditionalType.ts
+npx tsx src/caFramework/sandbox.ts
 
 # Or compile and run
 npm run build
@@ -82,6 +84,20 @@ Learn Mapped Types through a fun fruit-themed tutorial.
 - Understanding `as const` and type widening
 - Transforming types (arrays, functions with arguments)
 - Practical pattern: function table with type constraints
+
+### 🔀 [Distributive Conditional Types](src/distributiveConditionalType/distributiveConditionalType.ts)
+Deep dive into how TypeScript distributes union types in conditional types.
+- How `T extends U` distributes over unions
+- Preventing distribution with `[T]` wrapper
+- Implementing Extract and Exclude from scratch
+- Boolean literal expansion behavior
+
+### 🏛️ [CA Framework Sandbox](src/caFramework/sandbox.ts)
+Type-level enforcement of Clean Architecture dependency rules.
+- Layer dependency validation at compile-time
+- InterfacePolicy for declaring allowed consumers
+- LayerPolicy for bidirectional dependency checking
+- Architectural constraints as TypeScript types
 
 ### ❌ [Keyed Promise.all v1](src/keyedPromiseAll/keyedPromiseAll.ts) - Failed Attempt
 Enhanced Promise.all that returns results by meaningful keys instead of array indices.
