@@ -5,14 +5,18 @@
  */
 
 type CanDepend<L extends Layer, I extends readonly Layer[]> =
-    L extends I[number] ? true : false
+    L extends I[number]
+    ? true 
+    : false extends true // この出し方、AIさんに教えてもろた
+      ? never 
+      : `Error: Layer ${L} cannot depend on this interface`
 
 const LayerLevels = {
   FrameworksDrivers: 'FrameworksDrivers',
   InterfaceAdapter: 'InterfaceAdapter',
   ApplicationBuisinessRule: 'ApplicationBuisinessRule',
   EnterpriseBuisinessRule: 'EnterpriseBuisinessRule',
-  Uknown: 'Uknown'
+  Uknown: 'Unknown'
 } as const
 
 type Layer = keyof typeof LayerLevels
@@ -22,7 +26,16 @@ interface InterfacePolicy<Layers extends readonly Layer[]> {
 }
 
 interface UsecaseInPort extends InterfacePolicy<[
-  'InterfaceAdapter', // わざと、InterfaceAdapterに使わせないようにする
+  'InterfaceAdapter',
+  'FrameworksDrivers'
+]> {
+  condition: {
+    id: number
+  }
+}
+
+interface UsecaseInPort_Err extends InterfacePolicy<[
+  // 'InterfaceAdapter', // わざと、InterfaceAdapterに使わせないようにする
   'FrameworksDrivers'
 ]> {
   condition: {
@@ -61,3 +74,15 @@ class MyController extends LayerBase implements MyControllerPolicy {
   }
 }
 const c = new MyController()
+
+interface MyControllerPolicy_Err extends
+    LayerPolicy<'InterfaceAdapter', ControllerInPort, UsecaseInPort_Err> {}
+
+class MyController_Err extends LayerBase implements MyControllerPolicy_Err {
+
+  exeute(input: ControllerInPort): UsecaseInPort_Err {
+    throw new Error("Method not implemented.")
+  }
+}
+const c_err = new MyController_Err()
+
