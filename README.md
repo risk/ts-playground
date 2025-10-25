@@ -38,6 +38,8 @@ npx tsx src/typeCalc/typeTest.ts
 npx tsx src/mappedType/mappedType.ts
 npx tsx src/distributiveConditionalType/distributiveConditionalType.ts
 npx tsx src/caFramework/sandbox.ts
+npx tsx src/gatePrototype/gatePrototype.ts
+npx tsx src/gatePrototype/asyncGatePrototype.ts
 
 # Or compile and run
 npm run build
@@ -110,6 +112,14 @@ Improved version with perfect type inference using class-based wrapping.
 - **Perfect type inference** through KeyedFunc wrapper class
 - Result type pattern for type-safe error handling
 - handleResult helper for convenient result processing
+
+### 🚪 [Zod Gate Processing](src/gatePrototype/)
+Type-safe data validation and transformation using Zod schemas.
+- **Input/Output validation** with strict schema enforcement
+- **Curried function design** for reusable gate handlers
+- **Synchronous and asynchronous** versions
+- **Complete type safety** with external data isolation
+- **Unified error handling** with custom GateError types
 
 ---
 
