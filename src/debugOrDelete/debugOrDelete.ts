@@ -9,12 +9,13 @@ interface executer {
 
 class Node<P, T> implements executer {
 
-  next: Node<unknown, unknown> | null = null
+  next: Node<T, unknown> | null = null
 
   constructor(private prev: Node<unknown, P> | null, private x: T) {}
 
   execute(reverse: boolean = false): executer | null {
-    console.log(this.x)
+    // ここで Prevの x は正しい型で取れる
+    console.log(`${this.prev ? this.prev.x : 'empty'}(${this.prev && typeof this.prev.x})`, this.x)
     return reverse ? this.prev : this.next
   }
 
@@ -27,7 +28,7 @@ class Node<P, T> implements executer {
   }
 
   addNext<NEXT_T>(nextX: NEXT_T) {
-    const next = new Node<T, NEXT_T>(this, nextX)
+    const next = new Node<T, NEXT_T>(this, nextX) // <-　ここで次の構造に自分の型を渡してる
     this.next = next
     return next
   }
