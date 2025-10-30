@@ -19,14 +19,6 @@ class Node<P, T> implements executer {
     return reverse ? this.prev : this.next
   }
 
-  getPrev() {
-    return this.prev
-  }
-
-  getNext() {
-    return this.next
-  }
-
   addNext<NEXT_T>(nextX: NEXT_T) {
     const next = new Node<T, NEXT_T>(this, nextX) // <-　ここで次の構造に自分の型を渡してる
     this.next = next
